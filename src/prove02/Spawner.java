@@ -1,5 +1,7 @@
 package prove02;
 
+import java.awt.*;
+
 public interface Spawner {
-    public Creature spawnNewCreature();
+    public Creature spawnNewCreature(Point newPoint);
 }

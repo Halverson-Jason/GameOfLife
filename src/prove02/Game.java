@@ -29,25 +29,23 @@ public class Game {
 			Plant p = new Plant();
 			creatures.add(p);
 		}
-		// Add wolves
-		for(int i = 0; i < 10; i++){
-			Wolf w = new Wolf();
-			creatures.add(w);
-		}
-		// Add some animals to the world
-		for(int i = 0; i < 25; i++) {
-			Animal a = new Animal();
-			creatures.add(a);
-		}
-
 		// Add zombies
 		for(int i = 0; i < 10; i++){
 			Zombie z = new Zombie();
 			creatures.add(z);
 		}
 
+		// Add wolves
+		for(int i = 0; i < 10; i++){
+			Wolf w = new Wolf();
+			creatures.add(w);
+		}
+		// Add some animals to the world
+		for(int i = 0; i < 20; i++) {
+			Animal a = new Animal();
+			creatures.add(a);
+		}
 
-		
 		// Create the world
 		_theWorld = new World(creatures);
 	}

@@ -3,19 +3,22 @@ package prove02;
 import java.awt.*;
 import java.util.Random;
 
-public class Wolf extends Creature implements Movable,Aware,Aggressor {
+public class Wolf extends Creature implements Movable,Aware,Aggressor,Spawner {
 
     Random _rand;
 
     // if wolf is spawnable
     private boolean spawnable;
     public boolean getSpawnable(){return spawnable;}
-    public void setSpawnable(){spawnable = true;}
+    public void setSpawnable(boolean isSpawnable){spawnable = isSpawnable;}
 
-//    public Creature spawnNewCreature(){
-//        Creature newWolf;
-//        return newWolf;
-//    }
+    public Creature spawnNewCreature(Point newPoint){
+
+        Wolf w = new Wolf();
+        w.setLocation(newPoint);
+        w.setSpawnable(false);
+        return w;
+    }
 
     private Direction preferredDirection;
     public void setPreferredDirection(Direction direction){
@@ -137,6 +140,7 @@ public class Wolf extends Creature implements Movable,Aware,Aggressor {
         //Attack only animals
         if(target instanceof Animal) {
             target.takeDamage(5);
+            setSpawnable(true);
         }
     }
 

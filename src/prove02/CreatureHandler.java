@@ -1,5 +1,6 @@
 package prove02;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Point;
 import java.util.List;
@@ -17,7 +18,9 @@ public class CreatureHandler
 	int _rows;
 	int _cols;
 	Random _rand;
-	List<Creature> _creatures; 
+	List<Creature> _creatures;
+	// New creature list for Spawnable wolves
+    List<Creature> _newCreatures = new ArrayList<Creature>();
 
 	/**
 	* Retrieves all of the creatures that exist in the world
@@ -145,11 +148,16 @@ public class CreatureHandler
 					a.attack(target);
 				}
 
-//				if(c instanceof Spawner && c.getSpawnable()) {
-//					Creature target = getTarget(c, 0, 0);
-//					Aggressor a = (Aggressor)c;
-//					a.attack(target);
-//				}
-			}
+				if((c instanceof Spawner) && ((Wolf)c).getSpawnable()) {
+
+                    Point newPoint = (Point)c.getLocation().clone();
+                    newPoint.x -= 1;
+                    Creature newCreature = ((Wolf) c).spawnNewCreature(newPoint);
+                    _newCreatures.add(newCreature);
+                    ((Wolf) c).setSpawnable(false);
+
+				}
+		}
+        _creatures.addAll(_newCreatures);
 	}
 }

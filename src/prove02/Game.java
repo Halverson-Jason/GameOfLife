@@ -29,7 +29,11 @@ public class Game {
 			Plant p = new Plant();
 			creatures.add(p);
 		}
-		
+		// Add wolves
+		for(int i = 0; i < 10; i++){
+			Wolf w = new Wolf();
+			creatures.add(w);
+		}
 		// Add some animals to the world
 		for(int i = 0; i < 25; i++) {
 			Animal a = new Animal();
@@ -42,11 +46,7 @@ public class Game {
 			creatures.add(z);
 		}
 
-		// Add wolves
-		for(int i = 0; i < 10; i++){
-			Wolf w = new Wolf();
-			creatures.add(w);
-		}
+
 		
 		// Create the world
 		_theWorld = new World(creatures);

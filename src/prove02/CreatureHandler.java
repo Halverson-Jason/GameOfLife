@@ -144,7 +144,12 @@ public class CreatureHandler
 					Aggressor a = (Aggressor)c;
 					a.attack(target);
 				}
-				
+
+//				if(c instanceof Spawner && c.getSpawnable()) {
+//					Creature target = getTarget(c, 0, 0);
+//					Aggressor a = (Aggressor)c;
+//					a.attack(target);
+//				}
 			}
 	}
 }

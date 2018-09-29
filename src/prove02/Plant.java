@@ -29,7 +29,7 @@ public class Plant extends Creature {
 	
 	public Color getColor() {
 		return new Color(0, 132, 72);
-	}	
+	}
 	
 	public Boolean isAlive() {
 		return _health > 0;

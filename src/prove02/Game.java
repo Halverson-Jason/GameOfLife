@@ -41,6 +41,12 @@ public class Game {
 			Zombie z = new Zombie();
 			creatures.add(z);
 		}
+
+		// Add wolves
+		for(int i = 0; i < 10; i++){
+			Wolf w = new Wolf();
+			creatures.add(w);
+		}
 		
 		// Create the world
 		_theWorld = new World(creatures);
